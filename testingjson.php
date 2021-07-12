@@ -3,29 +3,21 @@
 
 <?php
 //array
+$on = array("12:40","13:35");
+$off =array("12:28","13:34");
 $array = Array (
 	"0" => Array (
-		"id" => "MMZ301",
-		"name" => "Michael Bruce",
-		"designation" => "System Architect"
-	),
-	"1" => Array (
-		"id" => "MMZ385",
-		"name" => "Jennifer Winters",
-		"designation" => "Senior Programmer"
-	),
-	"2" => Array (
-		"id" => "MMZ593",
-		"name" => "Donna Fox",
-		"designation" => "Ofice Manager"
+		"name" => "SP1_Power",
+		"ON" => $on,
+		"OFF" => $off
 	)
 );
 
 //encode array to json
-$json = json_encode(array('data' => $array));
+$json = json_encode(array('items' => $array),JSON_PRETTY_PRINT);
 
 //write json to file
-if(file_put_contents("data.json", $json))
+if(file_put_contents('./SHDS/items/'."item3.json", $json))
 	echo "JSON file created successfully...";
 else
 	echo "Oops! Error creating json file...";
