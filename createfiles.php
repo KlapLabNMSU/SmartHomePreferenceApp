@@ -6,20 +6,28 @@
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
 	include 'openhabTest.php';
 	$arr_data = array();
+	//This foreach loop looks through all the devices we have and sees if the names match. If they do not belong, they are deleted.
 	foreach($scanned_directory as $values) {
 		$smol = substr($values, 0, -5);
 		$maybe = in_array($smol, $output);
 		if(!$maybe){
-			//delete stuffs
+			//Item that should not be there is found
+			$stringy = "rm -rf ./SHDS/items/";
+			$stringy .= $values;
+			exec($stringy);
 		}
-		else
-			$arr_data.push($arr_data, $smol);
+		else{
+			//Item is found, do nothing
+			array_push($arr_data, $smol);
+		}
 	}
-
+	//This function makes files for all the devices without one.
 	foreach($output as $values) {
 		$maybe = in_array($values, $arr_data);
-		if(!$maybe)
-			//Create file w/ name
+		if(!$maybe){
+			//Make file if it does not already exist
+			include 'testingjson.php';
+		}
 	}
 ?>
 </body>

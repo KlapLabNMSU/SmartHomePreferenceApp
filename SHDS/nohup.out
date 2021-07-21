@@ -1,0 +1,362 @@
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NullPointerException
+	at Preferences.readPreferences(Preferences.java:22)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NullPointerException
+	at Preferences.readPreferences(Preferences.java:22)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+File read: 'items/item1.json'
+File read: 'items/item2.json'
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/item3.json'
+java.lang.NumberFormatException: For input string: "null"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/SP1_Power.json'
+File read: 'items/TS1.json'
+java.lang.ClassCastException: class java.lang.String cannot be cast to class org.json.simple.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; org.json.simple.JSONArray is in unnamed module of loader 'app')
+	at Preferences.readPreferences(Preferences.java:38)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/SP1_Power.json'
+File read: 'items/TS1.json'
+java.lang.ClassCastException: class java.lang.String cannot be cast to class org.json.simple.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; org.json.simple.JSONArray is in unnamed module of loader 'app')
+	at Preferences.readPreferences(Preferences.java:38)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/items3.json'
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at Preferences.readPreferences(Preferences.java:43)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/SP1_Power.json'
+File read: 'items/TS1.json'
+Read all preferences successfully.
+File read: 'items/TS1.json'
+Read all preferences successfully.
+File read: 'items/SP1_Power.json'
+java.lang.ClassCastException: class java.lang.String cannot be cast to class org.json.simple.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; org.json.simple.JSONArray is in unnamed module of loader 'app')
+	at Preferences.readPreferences(Preferences.java:38)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Read all preferences successfully.
+File read: 'items/SP1_Power.json'
+File read: 'items/TS1.json'
+Read all preferences successfully.
+File read: 'items/.SP1_Power.json.swp'
+Exception in thread "Smart Home Device Schedular" java.lang.Error: Lexical Error: Unmatched Input.
+	at org.json.simple.parser.Yylex.yylex(Yylex.java:295)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:41)
+	at Preferences.readPreferences(Preferences.java:20)
+	at Preferences.<init>(Preferences.java:10)
+	at SHDS.run(SHDS.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:829)

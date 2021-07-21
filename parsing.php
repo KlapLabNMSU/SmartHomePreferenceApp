@@ -3,23 +3,15 @@
 
 <?php
 
-	$myFile = './SHDS/items/'."item3.json";
+	$myFile = './SHDS/items/'.$val.".json";
 	$arr_data = array(); //create empty array
 	$ON_arr = array();
 	$OFF_arr = array();
 	$directory = './SHDS/items/';
 	//This is for future "reading file name" stuffs :)
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
-	foreach($scanned_directory as $values) {
-		print_r(substr($values, 0, -5));
-		print "<br>";
-	}
-
 	//This is to read file stuffs
-	$homepage = file_get_contents($directory.'item1.json');
-	print_r($homepage);
-	print "<br>";
-
+	$homepage = file_get_contents($directory.$val.'.json');
 	//This is to try and find "ON" times
 	//First, we find "ON"
 	$homepager = $homepage;
@@ -46,10 +38,6 @@
 	}
 	for($x = 0; $x < 6; $x++)
 		array_pop($ON_arr);
-	print "On times in array: <br>";
-	print_r($ON_arr);
-	print "<br>";
-
 	//Start finding off times
 	$homepager = $homepage;
 	$indexOf = strpos($homepager, "OFF", 0);
@@ -74,9 +62,6 @@
 	}
 	for($x = 0; $x < 6; $x++)
 		array_pop($OFF_arr);
-	print "Off times in array: <br>";
-	print_r($OFF_arr);
-	print "<br>";
 ?>
 
 </body>
