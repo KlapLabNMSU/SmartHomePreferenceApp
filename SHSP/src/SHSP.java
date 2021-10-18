@@ -1,6 +1,8 @@
 //Smart Home Scheduling Problem (SHSP) is a java program based on the DFS algorithm defined in the 
 //research paper "A Scheduler for Smart Homes with Probabilistic User Preferences" (V. Nguyen et al.)
 
+import org.apache.commons.math3.distribution.*;
+
 public class SHSP {
 	
 	//PRE : A p-scheduling problem P
@@ -56,7 +58,7 @@ public class SHSP {
 			
 			if(item == numDevices-1) {
 				//if F(U(...))(a) >= B && f(H) M optimalValue then:
-				if(scheduleValue(H) < optimalValue) { //TODO ask porag about line 26
+				if((1 - phiFunction()) >= beta && scheduleValue(H) < optimalValue) { //TODO ask porag about line 26
 					optimalCandidate = H;
 					optimalValue = scheduleValue(H);
 					return H; //comment out to find optimal schedule
@@ -78,6 +80,16 @@ public class SHSP {
 		return 0.0;
 	}//end scheduleValue
 	
+	//PRE:  z-score value
+	//POST: z-score is converted into a percentage value
+	public static double phiFuction(double zScore){
+		// z-score to percentile
+		double percentile = 0;
+		NormalDistribution dist = new NormalDistribution();
+		percentile = dist.cumulativeProbability(zScore) * 100;
+		return percentile/100;
+	}//end phi
+
 	
 	//TODO make the ok function
 	//PRE:  schedule H, and  array of conditions to be met
