@@ -49,6 +49,8 @@
   </div>
 </nav>
 
+<?php //This section is used to create the sections for users to put in preferences.?>
+<?php $count = 2;?>
 <div class="container">
 	<?php $val = $_GET["val"]; ?>
 	<div class="jumbotron">
@@ -107,15 +109,19 @@
 				<input type="text" class="form-control" name="timeOff2" placeholder="16:00">
 			</div>
 		</div>
-	<?php 
-	$valPass =   '<input type="hidden" name="val" value="';
-	$valPass .= $val.'">';
-	echo $valPass; ?>
-	
-	<button class="btn btn-primary" type="button" onclick="#">Add new preference</button>
+	<?php $valPass='<input type="hidden" name="val" value="'.$val.'">';
+	echo $valPass;?>
+
+	<script>
+		function addPref(){
+		}
+	</script>
+
+	<button class="btn btn-primary" type="button" onclick="addPref()">Add new preference</button>
 	<?php echo	'<input class="btn btn-primary" type="submit" name="Submit" value="Save">'; ?>
 	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
-	<?php echo'</form>'; ?>
+	
+</form>
 
 </div>
 </body>

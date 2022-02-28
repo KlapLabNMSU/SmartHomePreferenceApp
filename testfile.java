@@ -7,14 +7,15 @@ public class testfile {
 		try {
 			
 			//curl -X GET --header "Accept: application/json" "http://{openHAB_IP}:8080/rest/items?recursive=false"
-			String[] commands = {"curl", "-X", "GET", "http://192.168.1.148:8080/rest/items?recursive=false"};
+			String[] commands = {"curl", "-X", "GET", "http://localhost:8080/rest/items?recursive=false"};
 			Process process = Runtime.getRuntime().exec(commands);
-			BufferedReader reader = new BufferedReader(new 
-			InputStreamReader(process.getInputStream()));
-			String line;
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			String line = "";
 			response = "";
-			while ((line = reader.readLine()) != null) {
+			line = reader.readLine();
+			while (line != null) {
 			    response = response + line;
+				line = reader.readLine();
 			}//end while
 			
 			
@@ -31,7 +32,6 @@ public class testfile {
 				names.add(substr);
 				response = response.substring(indexOfLabel+5);
 			}//end while
-			
 			for(int i=0;i<names.size();i++)
 				System.out.println(names.get(i));
 		}//end try

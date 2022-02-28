@@ -1,6 +1,5 @@
 <html>
 <body>
-
 <?php
 //array
 $array = Array (
@@ -23,6 +22,5 @@ else
 // data.json
 
 ?>
-
 </body>
 </html>

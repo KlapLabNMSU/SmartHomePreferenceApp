@@ -29,15 +29,17 @@
       <li class="nav-item">
         <a class="nav-link" href="scan.php">Scan</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="SHSP.php">SHSP</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Device Preferences
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 			<?php foreach($arr_data as $items){ ?>
-				<?php $link = '<a class="dropdown-item" href="mywebpage2.php?val='; ?>
-				<?php $link .= $items.'">'.$items.'</a>'; ?> 
-				<?php print $link; ?>
+				<?php $link = '<a class="dropdown-item" href="mywebpage2.php?val='.$items.'">'.$items.'</a>';?>
+        <?php print $link; ?>
 			<?php } ?>
         </div>
       </li>

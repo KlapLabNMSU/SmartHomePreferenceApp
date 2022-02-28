@@ -1,5 +1,3 @@
-
-
 <hmtl>
 <body>
 <?php

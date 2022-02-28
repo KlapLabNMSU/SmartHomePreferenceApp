@@ -9,8 +9,8 @@
 	$myFile = './SHDS/items/'.$val.'.json';
 	$arr_data = array(); //create empty array
 	$directory = './SHDS/items/';
-	try
-	{	//Get ON and OFF data
+	try{
+		//Get ON and OFF data
 		//Get Off
 		$on1 = $_POST['timeOn1'];
 		$on2 = $_POST['timeOn2'];
@@ -18,6 +18,9 @@
 		$off2 = $_POST['timeOff2'];
 		$on = array($on1,$on2);
 		$off = array($off1,$off2);
+		//$on = $on1;
+		//$off = $off1;
+		include 'phptomongodb.php';
 		//Get form data
 		$formdata = Array (
 			"0" => Array (
@@ -32,7 +35,7 @@
 		//write json data into data.json file
 		if(file_put_contents($myFile, $jsondata)) {
 			echo 'Data successfully saved<br>';
-			$link = '<a href="homepage.php">Return to homepage.</a>';
+			$link = '<a href="home.php">Return to homepage.</a>';
 			echo $link;
 		}
 		else
