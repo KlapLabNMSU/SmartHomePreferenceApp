@@ -63,13 +63,16 @@
         
         $items = array_values(inboxList('localhost:8080','smarthome','smarthome'));
         foreach($items as $item){
-        echo'<form method="post" action="registration.php">
-                <input type="hidden" name="itemData" value="'.json_encode($item).'">       !FIXME! json_encode is not encoding all the data
-                <button class="btn btn-primary" type="submit">
-                Type: '.array_values(array_values($item)[2])[11].'</br>
-                UID: '.array_values($item)[4].'
-                </button> 
-            </form>';
+            if($payload = json_encode($item)){//error checking
+                echo'<form method="post" action="registration.php">
+                        <input type="hidden" name="itemData" value="'.$payload.'">
+                        <button class="btn btn-primary" type="submit">
+                        Type: '.array_values(array_values($item)[2])[11].'</br>
+                        UID: '.array_values($item)[4].'
+                        </button> 
+                    </form>';
+                echo $payload;
+            }
         }
     ?>
 

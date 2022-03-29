@@ -4,6 +4,7 @@
 
             <?php
             /* Author: Theoderic Platt
+            Porag Chowdhury
             Last Edited: 03/16/2022
             Description: Item_Handler.php uses cURL requests to openhab to allow 
             users to add devices through the use of the smarthome project webpage. 
