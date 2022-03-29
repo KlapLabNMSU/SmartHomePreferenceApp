@@ -4,7 +4,7 @@
 
             <?php
             /* Author: Theoderic Platt
-            Last Edited: 02/23/2022
+            Last Edited: 03/16/2022
             Description: Item_Handler.php uses cURL requests to openhab to allow 
             users to add devices through the use of the smarthome project webpage. 
             This application supports and handles the following actions: (WIP)
@@ -29,12 +29,6 @@
             $url   = 'http://localhost:8080'; //openhab url
             $usr = ''; //username --TODO look into security, info should not be hardcoded.
             $psd  = ''; //password --TODO look into security, info should not be hardcoded.
-
-
-
-
-
-
 
             ///////////////////////////
             // API calling functions //
@@ -152,7 +146,7 @@
                   $_psd  - password
 
             Postconditions: 
-                  All data contained in the inbox is returned.
+                  All data contained in the inbox is returned as a json formatted array.
             
             Last Edited:
                   02/28/2022 */
@@ -166,12 +160,15 @@
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
 
+                  //$httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  //echo '</br>curl http code:'.$httpCode.'</br>';
+
                   curl_close ($ch);
-                  return $response;
+                  return json_decode($response,true);
             }//end inboxList
 
 
-            /*
+            /*                   
             Preconditions:  
                   $_url - openhab url
                   $_usr - username
@@ -183,17 +180,26 @@
                   returns openhab response from adding the device.
 
             Last Edited:
-                  02/28/2022 */
+                  03/14/2022 */
             function inboxApprove($_url,$_usr,$_psd,$_uid){
                   $api = $_url . '/rest/inbox/' . $_uid . '/approve';
+                  echo $api . '</br>';
                   
                   $ch = curl_init();
                   curl_setopt($ch,CURLOPT_URL,$api);
                   curl_setopt($ch,CURLOPT_POST,1);
                   curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+                  $headers = array(
+                        "Accept: application/json",
+                        "Content-Type: text/plain"
+                  );
+                  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
 
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
+
+                  //$httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  //echo '</br>curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
                   return $response;
@@ -201,43 +207,95 @@
 
 
 
+            /*
+            Preconditions:  
+                  $_url   - openhab url
+                  $_usr   - username
+                  $_psd   - password
+                  $_name  - item name
+                  $_label - item lable
+                  $_type  - item type
 
+            Postconditions: 
+                  itemCreate creates an item with all the set parameter values
+            
+            Last Edited:
+                  03/16/2022 */
+            function itemCreate($_url,$_usr,$_psd,$_name,$_label,$_type){
+                  $api = $_url . '/rest/items/' . $_name;
+                  /*
+                  category: ""
+                  created: false
+                  groupNames: []
+                  label: "itemLabel"
+                  name: "itemName"
+                  tags: []
+                  type: "Switch"
+                  */
+                  $data = array(
+                        'category' => '', 
+                        'created'=> false,
+                        'groupNames' => [],
+                        'label'=> $_label,
+                        'name' => $_name,
+                        'tags' => [],  
+                        'type' => $_type
+                  );
+                  $payload = json_encode($data);
+                  
+                  echo "Payload is: </br>";
+                  echo $payload;
+                  echo "</br>";
+                  $ch = curl_init();
+                  curl_setopt($ch, CURLOPT_URL,$api);
+                  //curl_setopt($ch, CURLOPT_PUT, 1);
+                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+                  curl_setopt($ch, CURLOPT_POSTFIELDS, $payload );
+                  curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+                  $headers = array(
+                        "Content-Type: application/json"
+                  );
+                  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
 
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  echo '</br>curl http code:'.$httpCode.'</br>';
 
+                  curl_close ($ch);
+                  return $response;
+            }//end bindingScan
 
+            //THE BELOW CODE COMMENTED OUT SHOWS EXACT OUTPUT OF THE inboxList() FUNCTION.
+            /*
+            $L0 = inboxList($url,'smarthome','smarthome');
+            
+            $ind1 = 0;
+            echo 'array indexes:</br>';
+            foreach($L0 as $L1){
+                  $ind2 = 0;
+                  if(is_array($L1))
+                  foreach($L1 as $L2){
+                        $ind3 = 0;
+                        if(is_array($L2))
+                        foreach($L2 as $L3){
+                              echo '</br>t['.$ind1.']['.$ind2.']['.$ind3.']:'.$L3;
+                              $ind3++;
+                        }
+                        else 
+                        echo '</br>t['.$ind1.']['.$ind2.']:'.$L2;
+                        $ind2++;
+                  }
+                  else 
+                  echo '</br>AAAHHHHHHH';
+                  $ind1++;
+            }
+            echo'</br></br></br>vardump:</br>';
+            var_dump($L0);
+            */
 
-            /////////////////
-            // Experiments //
-            /////////////////
-            
-            //bindingInstall
-            echo 'Response from bindingInstall() : </br>&emsp;' . bindingInstall($url,'smarthome','smarthome','binding-tplinksmarthome');
-            echo '</br>';
-            
-            //bindingList
-            echo 'Response from bindingList() : ';
-            echo '</br>';
-            foreach(bindingList($url,'smarthome','smarthome') as $uid)
-                  echo '&emsp;'.$uid . '</br>';
-            
-            //bindingScan
-            echo 'Response from bindingScan() : ';
-            echo '</br>';
-            foreach(bindingScan($url,'smarthome','smarthome',bindingList($url,'smarthome','smarthome')) as $uid)
-                  echo '&emsp;'.$uid . '</br>';
-
-            //inboxList
-            echo 'Response from inboxList() : </br>&emsp;' . inboxList($url,'smarthome','smarthome');
-            
-            //inboxApprove
-            //echo 'Response from inboxList() : </br>&emsp;' . inboxApprove($url,'smarthome','smarthome','tplinksmarthome:hs100:9D12EA');
-            
-            
-
-            
 
             ?>
-
       </body>
 </html>
 

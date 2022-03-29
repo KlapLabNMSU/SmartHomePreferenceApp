@@ -35,7 +35,7 @@ foreach($rows as $r){
 
     $rowsArray = (array) $r;
     $json = json_encode($rowsArray);
-    echo $json."<br>";
+    //echo $json."<br>";
 
     //This is used to find the name of the device
     $index = strpos($json, "name");
@@ -43,7 +43,7 @@ foreach($rows as $r){
     $index = strpos($name, "\"");
     $name = substr($name, 0, $index);
     array_push($nameArray, $name);
-    echo "Name: ".$name."<br>";
+    //echo "Name: ".$name."<br>";
 
 
     //Clear variables
@@ -97,16 +97,30 @@ foreach($rows as $r){
     }
     
 }
-foreach($onTimesArray as $times)
-    foreach($times as $t)
-        echo "Time on:".$t."<br>";
 
-foreach($offTimesArray as $times)
+//This section will be used to run the program every minute and compare 
+//current time with preference time
+$compare = $hour.":".$minute;
+$i = 0;
+foreach($onTimesArray as $times){
+    $name = $nameArray[$i];
     foreach($times as $t)
-        echo "Time off:".$t."<br>";
+        if($compare == $t)
+            exec("curl --header \"Content-Type: text/plain\" --request POST --data \"ON\" http://localhost:8080/rest/items/".$name);
+    $i += 1;
+}
+
+$i = 0;
+foreach($offTimesArray as $times){
+    $name = $nameArray[$i];
+    foreach($times as $t)
+        if($compare == $t)
+            exec("curl --header \"Content-Type: text/plain\" --request POST --data \"OFF\" http://localhost:8080/rest/items/".$name);
+    $i += 1;
+}
 
 //This code is used to send POST requests to our devices which can turn them ON and OFF
-exec("curl --header \"Content-Type: text/plain\" --request POST --data \"OFF\" http://localhost:8080/rest/items/SP1_Power");
+//exec("curl --header \"Content-Type: text/plain\" --request POST --data \"OFF\" http://localhost:8080/rest/items/SP1_Power");
 
 ?>
 

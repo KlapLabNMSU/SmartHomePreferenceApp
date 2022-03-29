@@ -13,6 +13,7 @@
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
+<?php sleep(2);//give the site a chance to scan for devices?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
@@ -51,23 +52,33 @@
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Scan OpenHAB for new devices!</h3>
-	  <p>Please select a binding to scan for devices on that network.</p>
+	  <h1>Register Devices</h3>
+	  <p>Please select a device to register.</p>
 	</div>
-  <?php 
-    $bindings = bindingList('localhost:8080','smarthome','smarthome');//FIXME ask porag how to get username/password data without hardcoding it.
-    foreach($bindings as $item){
-      echo'<form method="post" action="items.php">
-            <input type="hidden" name="UID" value="'.$item.'">
-            <button class="btn btn-primary" type="submit">'.substr($item,8).'</button> 
-           </form>';
-    }
-  ?>
 
-  </br>
-  <button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button>
-	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
+    <?php 
+        $uid = $_POST['UID'];
+        $scanner = [$uid];
+        bindingScan('localhost:8080','smarthome','smarthome',$scanner);
+        
+        $items = array_values(inboxList('localhost:8080','smarthome','smarthome'));
+        foreach($items as $item){
+        echo'<form method="post" action="registration.php">
+                <input type="hidden" name="itemData" value="'.json_encode($item).'">       !FIXME! json_encode is not encoding all the data
+                <button class="btn btn-primary" type="submit">
+                Type: '.array_values(array_values($item)[2])[11].'</br>
+                UID: '.array_values($item)[4].'
+                </button> 
+            </form>';
+        }
+    ?>
 
+    </br>
+	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
+    <script type="text/javascript">
+        alert('If your item does not appear after scanning, you may need to wait a few seconds and refresh the page.');
+    </script>
+    
 </div>
 </body>
 </html>

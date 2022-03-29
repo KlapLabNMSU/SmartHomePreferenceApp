@@ -27,7 +27,7 @@
         <a class="nav-link" href="schedule.php">Schedules</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="scan.php">Scan</a>
+        <a class="nav-link" href="scan.php">Register Devices</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="SHSP.php">SHSP</a>

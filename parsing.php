@@ -3,7 +3,7 @@
 
 <?php
 
-	$myFile = './SHDS/items/'.$val.".json";
+	//$myFile = './SHDS/items/'.$val.".json";
 	$arr_data = array(); //create empty array
 	$ON_arr = array();
 	$OFF_arr = array();
@@ -11,7 +11,7 @@
 	//This is for future "reading file name" stuffs :)
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
 	//This is to read file stuffs
-	$homepage = file_get_contents($directory.$val.'.json');
+	//$homepage = file_get_contents($directory.$val.'.json');
 	//This is to try and find "ON" times
 	//First, we find "ON"
 	$homepager = $homepage;

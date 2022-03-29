@@ -56,7 +56,7 @@
 	<div class="jumbotron">
 		<h2><?php print $val ?> Device Preferences</h1>
 	</div>
-	<?php include 'parsing.php'; ?>
+	<?//php include 'parsing.php'; ?>
 
 	<form action="process.php" method="POST">
 		<div class="input-group mb-3" style="border: groove; padding: 10px;">

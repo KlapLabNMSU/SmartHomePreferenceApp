@@ -1,11 +1,11 @@
 <html>
 <body>
 <?php
-	chdir('/xampp/htdocs/SmartHome/');
+	chdir('/xampp/htdocs/SmartHomePreferenceApp/');
 	$directory = './SHDS/items/';
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
-	include 'openhabTest.php';
-	$arr_data = array();
+	//include 'openhabTest.php';
+	$arr_data = ["SP1_Power"];/*
 	//This foreach loop looks through all the devices we have and sees if the names match. If they do not belong, they are deleted.
 	foreach($scanned_directory as $values) {
 		$smol = substr($values, 0, -5);
@@ -28,7 +28,7 @@
 			//Make file if it does not already exist
 			include 'testingjson.php';
 		}
-	}
+	}*/
 ?>
 </body>
 </html>

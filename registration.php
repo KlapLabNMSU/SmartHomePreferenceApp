@@ -13,6 +13,7 @@
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
+<?php sleep(2);//give the site a chance to scan for devices?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
@@ -48,26 +49,25 @@
     </ul>
   </div>
 </nav>
-
+<?php 
+$data = $_POST['itemData'];
+$itemData = json_decode($data,true);
+var_dump($data) //TODO get the data to all correctly show
+?>
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Scan OpenHAB for new devices!</h3>
-	  <p>Please select a binding to scan for devices on that network.</p>
+	  <h1>Register</h3>
+	  <p>Please select an item from the list to add.</p>
 	</div>
-  <?php 
-    $bindings = bindingList('localhost:8080','smarthome','smarthome');//FIXME ask porag how to get username/password data without hardcoding it.
-    foreach($bindings as $item){
-      echo'<form method="post" action="items.php">
-            <input type="hidden" name="UID" value="'.$item.'">
-            <button class="btn btn-primary" type="submit">'.substr($item,8).'</button> 
-           </form>';
-    }
-  ?>
 
-  </br>
-  <button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button>
-	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
+    <?php 
+        
+        
+    ?>
 
+	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
+
+    
 </div>
 </body>
 </html>
