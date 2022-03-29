@@ -48,7 +48,7 @@
 
             Last Edited:
                   02/16/2022 */
-            function bindingInstall($_url,$_usr,$_psd,$_uid){
+            function bindingInstall($_url,$_usr,$_psd,$_uid,$debug=false){
                   $api = $_url . '/rest/addons/' . $_uid . '/install';
                   
                   $ch = curl_init();
@@ -58,6 +58,9 @@
 
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
+
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>bindingInstall curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
                   return $response;
@@ -75,7 +78,7 @@
 
             Last Edited:
                   02/23/2022 */
-            function bindingList($_url,$_usr,$_psd){
+            function bindingList($_url,$_usr,$_psd,$debug=false){
                   $api = $_url . '/rest/bindings';
                   
                   $ch = curl_init();
@@ -84,6 +87,9 @@
 
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
+
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>bindingList curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
 
@@ -117,7 +123,7 @@
             
             Last Edited:
                   02/23/2022 */
-            function bindingScan($_url,$_usr,$_psd,$_uids){
+            function bindingScan($_url,$_usr,$_psd,$_uids,$debug=false){
                   
                   $response = [];
                   $ch = curl_init();
@@ -135,6 +141,9 @@
                         array_push($response, $ret);
                   }
 
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>bindingScan curl http code:'.$httpCode.'</br>';
+
                   curl_close ($ch);
                   return $response;
             }//end bindingScan
@@ -151,7 +160,7 @@
             
             Last Edited:
                   02/28/2022 */
-            function inboxList($_url,$_usr,$_psd){
+            function inboxList($_url,$_usr,$_psd,$debug=false){
                   $api = $_url . '/rest/inbox';
                   
                   $ch = curl_init();
@@ -161,8 +170,8 @@
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
 
-                  //$httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-                  //echo '</br>curl http code:'.$httpCode.'</br>';
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>inboxList curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
                   return json_decode($response,true);
@@ -182,9 +191,9 @@
 
             Last Edited:
                   03/14/2022 */
-            function inboxApprove($_url,$_usr,$_psd,$_uid){
+            function inboxApprove($_url,$_usr,$_psd,$_uid,$debug=false){
                   $api = $_url . '/rest/inbox/' . $_uid . '/approve';
-                  echo $api . '</br>';
+                  #echo $api . '</br>';
                   
                   $ch = curl_init();
                   curl_setopt($ch,CURLOPT_URL,$api);
@@ -199,8 +208,8 @@
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
 
-                  //$httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-                  //echo '</br>curl http code:'.$httpCode.'</br>';
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>inboxApprove curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
                   return $response;
@@ -219,10 +228,11 @@
 
             Postconditions: 
                   itemCreate creates an item with all the set parameter values
+                  returns openhab response from adding the device.
             
             Last Edited:
                   03/16/2022 */
-            function itemCreate($_url,$_usr,$_psd,$_name,$_label,$_type){
+            function itemCreate($_url,$_usr,$_psd,$_name,$_label,$_type,$debug = false){
                   $api = $_url . '/rest/items/' . $_name;
                   /*
                   category: ""
@@ -244,9 +254,9 @@
                   );
                   $payload = json_encode($data);
                   
-                  echo "Payload is: </br>";
-                  echo $payload;
-                  echo "</br>";
+                  #echo "Payload is: </br>";
+                  #echo $payload;
+                  #echo "</br>";
                   $ch = curl_init();
                   curl_setopt($ch, CURLOPT_URL,$api);
                   //curl_setopt($ch, CURLOPT_PUT, 1);
@@ -261,7 +271,46 @@
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                   $response = curl_exec($ch);
                   $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-                  echo '</br>curl http code:'.$httpCode.'</br>';
+                  if($debug)echo '</br>itemCreate curl http code:'.$httpCode.'</br>';
+
+                  curl_close ($ch);
+                  return $response;
+            }//end bindingScan
+
+            /*
+            Preconditions:  
+                  $_url   - openhab url
+                  $_usr   - username
+                  $_psd   - password
+                  $_name  - item name
+                  $_UID   - item UID
+                  $_type  - item type
+
+            Postconditions: 
+                  itemLink links an item to a channel
+                  returns openhab response from adding the device.
+
+            Last Edited:
+                  03/29/2022 */
+            function itemLink($_url,$_usr,$_psd,$_name,$_UID,$_type,$debug=false){
+                  $api = $_url . '/rest/links/' . $_name . '/' . $_UID . '%3A' . $_type;
+                  if($debug) echo 'api is: '.$api;
+                  
+                  $ch = curl_init();
+                  curl_setopt($ch, CURLOPT_URL,$api);
+                  //curl_setopt($ch, CURLOPT_PUT, 1);
+                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+                  curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+
+                  $headers = array(
+                        "Content-Type: application/json"
+                  );
+                  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  if($debug)echo '</br>itemLink curl http code:'.$httpCode.'</br>';
 
                   curl_close ($ch);
                   return $response;

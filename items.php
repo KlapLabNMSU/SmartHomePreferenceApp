@@ -65,19 +65,18 @@
         foreach($items as $item){
             if($payload = json_encode($item)){//error checking
                 echo'<form method="post" action="registration.php">
-                        <input type="hidden" name="itemData" value="'.$payload.'">
+                        <input type="hidden" name="itemData" value=\''.addslashes($payload).'\'>
                         <button class="btn btn-primary" type="submit">
                         Type: '.array_values(array_values($item)[2])[11].'</br>
                         UID: '.array_values($item)[4].'
                         </button> 
                     </form>';
-                echo $payload;
             }
         }
     ?>
 
     </br>
-	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
+	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Cancel</button>
     <script type="text/javascript">
         alert('If your item does not appear after scanning, you may need to wait a few seconds and refresh the page.');
     </script>
