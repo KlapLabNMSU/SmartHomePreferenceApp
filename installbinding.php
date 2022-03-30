@@ -52,37 +52,32 @@
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Register Devices</h3>
-	  <p>Please select a device to register.</p>
-	  <div class="alert alert-warning" role="alert">If your item does not appear after scanning, you may need to wait a few seconds and refresh the page.</div>
+	  <h1>Binding operation status</h3>
+	  <p>Check below the status of your binding operation.</p>
 	</div>
 
     <?php 
-        $uid = $_POST['UID'];
-        $scanner = [$uid];
-        bindingScan('localhost:8080','smarthome','smarthome',$scanner);
-        
-        $items = array_values(inboxList('localhost:8080','smarthome','smarthome'));
-		echo '<div class ="border border-primary p-2">';	
-        foreach($items as $item){
-			echo'<div class="d-block p-2"><form method="post" action="registration.php">
-					<input type="hidden" name="itemData" value="'.json_encode($item).'"> 
-					<button class="btn btn-primary" type="submit">
-					Type: '.array_values(array_values($item)[2])[11].'</br>
-					UID: '.array_values($item)[4].'
-					</button> 
-				</form></div>';
-        }
-		// !FIXME! json_encode is not encoding all the data
-		echo '</div>';
+        $_bindingId = $_POST['bindingId'];
+		$boo_Install = $_POST['install'];
+		//echo $boo_Install;
+		$_code = "400";
+		if($boo_Install == "install"){
+			$_code = bindingInstall('localhost:8080','smarthome','smarthome',$_bindingId);
+		}
+		else {
+			$_code = bindingUninstall('localhost:8080','smarthome','smarthome',$_bindingId);	
+		}			
+			
+		if ($_code == "200"){
+			echo "<div class='p-2'><h3>".$_bindingId." binding ".$boo_Install."ation successful!</h3></div>";	
+		}
+		else { 
+			echo "<div class='p-2'><h3>".$_bindingId." binding ".$boo_Install."ation unsuccessful!</h3></div>";	
+		}
     ?>
 
-    </br>
 	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
-	<button class="btn btn-primary" type="button" onclick="window.location.reload()">Refresh</button>
-    <!--script type="text/javascript">
-        alert('If your item does not appear after scanning, you may need to wait a few seconds and refresh the page.');
-    </script-->
+
     
 </div>
 </body>

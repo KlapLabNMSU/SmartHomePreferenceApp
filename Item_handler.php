@@ -47,7 +47,7 @@
 
             Last Edited:
                   02/16/2022 */
-            function bindingInstall($_url,$_usr,$_psd,$_uid){
+            function bindingInstall_old($_url,$_usr,$_psd,$_uid){
                   $api = $_url . '/rest/addons/' . $_uid . '/install';
                   
                   $ch = curl_init();
@@ -100,6 +100,33 @@
                   }
                   
                   return $bindings;
+            }//end bindingList
+
+
+			/*
+            Preconditions:  
+                  $_url - openhab url
+                  $_usr - username
+                  $_psd - password
+
+            Postconditions: 
+                  returns array containing all uninstalled bindings' UIDs 
+
+            Last Edited:
+                  02/23/2022 */
+            function getUninstalledBindings($_url,$_usr,$_psd){
+                  $api = $_url . '/rest/addons';
+                  
+                  $ch = curl_init();
+                  curl_setopt($ch,CURLOPT_URL,$api);
+                  curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+
+				  curl_close ($ch);
+
+                  return json_decode($response,true);
             }//end bindingList
 
 
@@ -205,6 +232,81 @@
                   return $response;
             }//end inboxApprove
 
+
+            /*                   
+            Preconditions:  
+                  $_url - openhab url
+                  $_usr - username
+                  $_psd - password
+                  $_bindingId - binding id of the device to install
+
+            Postconditions: 
+                  The device with Binging = $_bindingId is used
+                  returns openhab response from adding the binding.
+
+            Last Edited:
+                  03/14/2022 */
+            function bindingInstall($_url,$_usr,$_psd,$_bindingId){
+                  $api = $_url . '/rest/addons/' . $_bindingId . '/install';
+                  //echo $api . '</br>';
+                  
+                  $ch = curl_init();
+                  curl_setopt($ch,CURLOPT_URL,$api);
+                  curl_setopt($ch,CURLOPT_POST,1);
+                  curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+                  $headers = array(
+                        "Accept: application/json",
+                        "Content-Type: text/plain"
+                  );
+                  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  //echo '</br>curl http code:'.$httpCode.'</br>';
+
+                  curl_close ($ch);
+                  return $httpCode;
+            }//end bindingInstall
+
+
+/*                   
+            Preconditions:  
+                  $_url - openhab url
+                  $_usr - username
+                  $_psd - password
+                  $_bindingId - binding id of the brand to uninstall
+
+            Postconditions: 
+                  The device with Binging = $_bindingId is used
+                  returns openhab response from adding the binding.
+
+            Last Edited:
+                  03/14/2022 */
+            function bindingUninstall($_url,$_usr,$_psd,$_bindingId){
+                  $api = $_url . '/rest/addons/' . $_bindingId . '/uninstall';
+                  //echo $api . '</br>';
+                  
+                  $ch = curl_init();
+                  curl_setopt($ch,CURLOPT_URL,$api);
+                  curl_setopt($ch,CURLOPT_POST,1);
+                  curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+                  $headers = array(
+                        "Accept: application/json",
+                        "Content-Type: text/plain"
+                  );
+                  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                  $response = curl_exec($ch);
+
+                  $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+                  //echo '</br>curl http code:'.$httpCode.'</br>';
+
+                  curl_close ($ch);
+                  return $httpCode;
+            }//end bindingUninstall
 
 
             /*
