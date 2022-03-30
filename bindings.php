@@ -13,37 +13,31 @@
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
-<?php include('nav-bar.php'); ?>
+
 <!-- make the corresponding navigation bar to active -->
+<?php include('nav-bar.php'); ?>
 <?php echo "<script> document.getElementById('scan').className += ' active';</script>"; ?>
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Device Registration</h1>
-	  <div class="alert alert-warning" role="alert">Please select a binding to scan for devices on that network/brand. If the binding is not present, you have to install that binding to register your device.</div>
+	  <h1>Scan OpenHAB for new devices!</h3>
+	  <p>Please select a binding to scan for devices on that network.</p>
 	</div>
   <?php 
-    $bindings = bindingList('localhost:8080','smarthome','smarthome');//FIXME ask porag how to get username/password data without hardcoding it.
-	echo '<div class ="border border-primary p-2"><h3> Installed bindings </h3></div>';
-	echo '<div class ="border border-primary">';
-    foreach($bindings as $item){
-      echo'<div class = "d-block p-2">
-				<form class="d-inline" method="post" action="items.php">
-					<input type="hidden" name="UID" value="'.$item.'">
-					<button class="btn btn-primary" type="submit">'.substr($item,8).'</button>
-				</form>
-				<form class="d-inline" method="post" action="installbinding.php">
-					<input type="hidden" name="install" value="uninstall">
-					<input type="hidden" name="bindingId" value="'.$item.'">
-					<button class="btn btn-primary" type="submit">Remove</button>
-				</form>
-			</div>'; 
-    }
+    $items = array_values(getUninstalledBindings('localhost:8080','smarthome','smarthome'));
+	echo '<div class ="border border-primary">';		
+	foreach($items as $item){
+	echo '<form method="post" action="installbinding.php"><div class="d-block p-2">
+			<input type="hidden" name="install" value="install"/>
+			<input type="hidden" name="bindingId" value="'.array_values($item)[0].'"/>
+			<button class="btn btn-primary" type="submit">'.array_values($item)[1].'</button> 
+		 </div></form>';
+	}
 	echo '</div>';
   ?>
 
   </br>
-  <button class="btn btn-primary" type="button" onclick="location.href='bindings.php'">Install new bindings</button>
+  <button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button>
 	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
 
 </div>
