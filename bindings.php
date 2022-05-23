@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Author: Moinul Morshed Porag Chowdhury
+Contributors: ---
+Date Last Modified: 03/30/2022
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>

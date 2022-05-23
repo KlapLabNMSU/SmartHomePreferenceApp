@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Author: Theoderic Platt
+Contributors: ---
+Date Last Modified: 04/19/2022
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>
@@ -13,8 +18,8 @@
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
-<?php include('nav-bar.php'); ?>
 <!-- make the corresponding navigation bar to active -->
+<?php include('nav-bar.php'); ?>
 <?php echo "<script> document.getElementById('scan').className += ' active';</script>"; ?>
 
 <div class="container">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
 Author: Moinul Morshed Porag Chowdhury
-Contributors: ---
-Date Last Modified: 03/30/2022
+Contributors: Theoderic Platt
+Date Last Modified: 04/19/2022
 -->
 <html lang="en">
 <head>
@@ -17,30 +17,32 @@ Date Last Modified: 03/30/2022
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <?php include 'createfiles.php'; ?>
+<?php include 'Item_handler.php';?>
 
 <!-- make the corresponding navigation bar to active -->
 <?php include('nav-bar.php'); ?>
-<?php echo "<script> document.getElementById('settings').className += ' active';</script>"; ?>
-
+<?php echo "<script> document.getElementById('activedevices').className += ' active';</script>"; ?>
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Smart Home Device Scheduler Settings</h3>
-	  <p>Please set the correct url to Scan OpenHAB for new devices and set path to store the json files.</p>
+	  <h1>Active devices</h3>
+	  <p>Below devices are active in the smart home.</p>
 	</div>
-	<form>
-	  <div class="form-group">
-		<label for="exampleInputEmail1">OpenHAB URL</label>
-		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter OpenHAB URL">
-	  </div>
-	  <div class="form-group">
-		<label for="exampleInputEmail2">Preference Storage</label>
-		<input type="text" class="form-control" id="exampleInputEmail2" placeholder="JSON_FILES/">
-	  </div>
-	  
-	  <button type="submit" value="Save" class="btn btn-primary">Save</button>
-	  <button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
-	</form>
+  <?php 
+    $items = array_values(getAllItems('localhost:8080','smarthome','smarthome'));
+	echo '<div class ="border border-primary">';		
+	foreach($items as $item){
+	echo '<form method="post" action="mywebpage2.php?val='.array_values($item)[4].'"><div class="d-block p-2">
+			<button class="btn btn-primary" type="submit">'.array_values($item)[4].'</button> 
+		 </div></form>';
+	}
+	echo '</div>';
+  ?>
+
+  </br>
+  <!--button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button-->
+	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
+
 </div>
 </body>
 </html>

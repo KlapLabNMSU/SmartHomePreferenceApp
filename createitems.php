@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Author: Theoderic Platt
+Contributors: Moinul Morshed Porag Chowdhury
+Date Last Modified: 03/30/2021
+-->
 <html>
 <body>
 <?php
@@ -19,7 +24,8 @@
     itemLink('localhost:8080','smarthome','smarthome',$name,str_replace(':','%3A',array_values($data)[4]),strtolower($type),$debug);
 
 
-    echo '<button class="btn btn-primary" type="button" onclick="location.href=\'home.php\'">Home</button>'
+    header("Location: activedevices.php");
+    exit();
 
 
 

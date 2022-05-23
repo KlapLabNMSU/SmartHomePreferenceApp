@@ -1,3 +1,8 @@
+<!--
+Author: Miguel Fernandez
+Contributors: ---
+Date Last Modified: 03/24/2022
+-->
 <?php
     //This code here is used to connect to MongoDB
     $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");

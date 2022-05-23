@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!--
+Author: Theoderic Platt
+Contributors: Moinul Morshed Porag Chowdhury
+Date Last Modified: 03/31/2022
+-->
 <html>
       <body>
 
             <?php
-            /* Author: Theoderic Platt
-            Porag Chowdhury
-            Last Edited: 03/16/2022
+            /*
             Description: Item_Handler.php uses cURL requests to openhab to allow 
             users to add devices through the use of the smarthome project webpage. 
             This application supports and handles the following actions: (WIP)
@@ -110,7 +113,7 @@
             }//end bindingList
 
 
-			/*
+		/*
             Preconditions:  
                   $_url - openhab url
                   $_usr - username
@@ -136,6 +139,33 @@
                   return json_decode($response,true);
             }//end bindingList
 
+
+            /*
+            Preconditions:  
+                  $_url - openhab url
+                  $_usr - username
+                  $_psd - password
+
+            Postconditions: 
+                  returns array containing all uninstalled bindings' UIDs 
+
+            Last Edited:
+                  02/23/2022 */
+                  function getAllItems($_url,$_usr,$_psd){
+                        $api = $_url . '/rest/items';
+                        
+                        $ch = curl_init();
+                        curl_setopt($ch,CURLOPT_URL,$api);
+                        curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+      
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+      
+                                curl_close ($ch);
+      
+                        return json_decode($response,true);
+                  }//end bindingList
+      
 
             /*
             Preconditions:  

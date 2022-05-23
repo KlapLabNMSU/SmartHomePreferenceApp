@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Author: Moinul Morshed Porag Chowdhury
+Contributors: ---
+Date Last Modified: 03/30/2022
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>
@@ -76,7 +81,7 @@
 		}
     ?>
 
-	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
+	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Done</button>
 
     
 </div>

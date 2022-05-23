@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Author: Theoderic Platt
+Contributors: ---
+Date Last Modified: 03/30/2022
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>
@@ -23,9 +28,11 @@
 $data = $_POST['itemData'];
 $dataS = stripslashes($data);
 $dataEncoded = json_decode($dataS,true);
+//echo "<div class ='border border-primary'>".$dataEncoded."</div>";
 ?>
 <div class="container">
 	<div class="jumbotron">
+        
 	  <h1>Please fill the following fields for '<?php echo array_values(array_values($dataEncoded)[2])[11];?>'.</h1>
       <p>Name: the name you wish to call your item.</p>
       <p>Label: the label you want you item to have.</p>
