@@ -3,6 +3,11 @@
 Author: Theoderic Platt
 Contributors: Moinul Morshed Porag Chowdhury
 Date Last Modified: 04/19/2022
+Description: Lists all items found in the inbox after scanning. Allows user to select item, linking to registration.php. 
+Includes: createfiles.php Item_handler.php nav-bar.php
+Included In: ---
+Links To: scan.php items.php registration.php 
+Links From: items.php scan.php
 -->
 <html lang="en">
 <head>

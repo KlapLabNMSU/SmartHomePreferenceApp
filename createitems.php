@@ -3,6 +3,12 @@
 Author: Theoderic Platt
 Contributors: Moinul Morshed Porag Chowdhury
 Date Last Modified: 03/30/2021
+Description: Takes the name, label, and type of an item along with its metadata and creates an item in Openhab.
+             Creates a thing to control the item. Links item to thing.
+Includes: Item_handler.php
+Included In: ---
+Links To: ---
+Links From: registration.php
 -->
 <html>
 <body>

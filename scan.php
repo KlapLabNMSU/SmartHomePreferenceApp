@@ -3,6 +3,11 @@
 Author: Theoderic Platt
 Contributors: ---
 Date Last Modified: 04/19/2022
+Description: Lists all currently installed bindings as links to items.php. Allows for uninstalling of bindings.
+Includes: createfiles.php Item_handler.php nav-bar.php 
+Included In: ---
+Links To: items.php installbinding.php bindings.php home.php
+Links From: installbinding.php items.php
 -->
 <html lang="en">
 <head>

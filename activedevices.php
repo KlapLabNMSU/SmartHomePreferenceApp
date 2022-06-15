@@ -3,6 +3,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: Theoderic Platt
 Date Last Modified: 04/19/2022
+Description: Finds all devices currently connected to Openhab and Lists them as links to mywebpage2.php
+Includes: createfiles.php Item_handler.php nav-bar.php
+Included In: ---
+Links To: mywebpage2.php home.php
+Links From: ---
 -->
 <html lang="en">
 <head>

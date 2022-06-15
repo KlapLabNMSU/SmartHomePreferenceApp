@@ -3,6 +3,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: ---
 Date Last Modified: 03/30/2022
+Description: home.php serves as the homepage for the webapp.
+Includes: nav-bar.php createfiles.php
+Included In: ---
+Links To: ---
+Links From: activedevices.php mywebpage2.php process.php scan.php schedule.php settings.php
 -->
 <html lang="en">
 <head>

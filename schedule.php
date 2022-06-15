@@ -3,6 +3,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: ---
 Date Last Modified: 03/30/2022
+Description: Landing page for future schedule generation handling. -WIP
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: home.php
+Links From: --- 
 -->
 <html lang="en">
 <head>

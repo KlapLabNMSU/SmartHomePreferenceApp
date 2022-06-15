@@ -2,6 +2,11 @@
 Author: Miguel Fernandez
 Contributors: ---
 Date Last Modified: 11/24/2021
+Description: TODO
+Includes: ---
+Included In: home.php activedevices.php bindings.php installbinding.php items.php mywebpage2.php registration.php scan.php schedule.php settings.php
+Links To: ---
+Links From: ---
 -->
 <html>
 <body>

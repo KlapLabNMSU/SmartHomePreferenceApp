@@ -3,6 +3,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: ---
 Date Last Modified: 03/30/2022
+Description: Allows user to set the correct url to Scan OpenHAB for new devices and set path to store the json files.
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: home.php
+Links From: ---
 -->
 <html lang="en">
 <head>

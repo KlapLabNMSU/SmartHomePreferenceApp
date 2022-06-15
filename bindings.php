@@ -3,6 +3,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: ---
 Date Last Modified: 03/30/2022
+Description: Lists all available bindings that can be downloaded from openhab
+Includes: createfiles.php Item_Handler.php nav-bar.php 
+Included In: ---
+Links To: installbinding.php
+Links From: scan.php
 -->
 <html lang="en">
 <head>

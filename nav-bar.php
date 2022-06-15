@@ -2,6 +2,11 @@
 Author: Moinul Morshed Porag Chowdhury
 Contributors: Theoderic Platt, Miguel Fernandez
 Date Last Modified: 03/31/2022
+Description: navigation bar linking all files together.
+Includes: ---
+Included In: home.php activedevices.php bindings.php installbinding.php items.php mywebpage2.php registration.php scan.php schedule.php settings.php
+Links To: home.php schedule.php scan.php activedevices.php mywebpage2.php settings.php
+Links From: ---
 -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

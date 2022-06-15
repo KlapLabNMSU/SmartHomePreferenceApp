@@ -3,6 +3,11 @@
 Author: Theoderic Platt
 Contributors: ---
 Date Last Modified: 03/30/2022
+Description: Prompts user for Name, Label, and Type of item. Submit links to createitems.php
+Includes: createfiles.php Item_handler.php nav-bar.php
+Included In: --- 
+Links To: createitems.php
+Links From: items.php
 -->
 <html lang="en">
 <head>

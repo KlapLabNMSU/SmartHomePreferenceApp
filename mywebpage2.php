@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <!--
-Author: Miguel fernandez
+Author: Miguel Fernandez
 Contributors: ---
 Date Last Modified: 03/31/2022
+Description: TODO
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: process.php home.php
+Links From: activedevices.php
 -->
 <html>
 <head>
