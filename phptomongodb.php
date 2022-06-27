@@ -9,6 +9,7 @@ Links To: ---
 Links From: ---
 -->
 <?php
+    $debug = false;
     //This code here is used to connect to MongoDB
     $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
     
@@ -18,15 +19,16 @@ Links From: ---
     $result = $manager->executeBulkWrite('KlapLab.switch', $bulk);
 
     //This section is used to delete NULL
-    //*
-    $bulk = new MongoDB\Driver\BulkWrite;
-    $bulk->delete(['name' => NULL]);
-    $result = $manager->executeBulkWrite('KlapLab.switch', $bulk);
+    if($debug){
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $bulk->delete(['name' => NULL]);
+        $result = $manager->executeBulkWrite('KlapLab.switch', $bulk);
 
-    //Delete NewItemTemp
-    $bulk = new MongoDB\Driver\BulkWrite;
-    $bulk->delete(['name' => "NewItemTemp"]);
-    $result = $manager->executeBulkWrite('KlapLab.switch', $bulk);//*/
+        //Delete NewItemTemp
+        $bulk = new MongoDB\Driver\BulkWrite;
+        $bulk->delete(['name' => "NewItemTemp"]);
+        $result = $manager->executeBulkWrite('KlapLab.switch', $bulk);
+    }
 
     //This code is being used to write a new switch to the database with the new preferences.
     $bulk = new MongoDB\Driver\BulkWrite;

@@ -10,6 +10,8 @@ Links From: ---
 -->
 
 <?php
+$writeToDB = false;
+
 //This line will be needed in order to actually read the log files
 chdir("E:/openHAB/userdata/logs");
 $handle = fopen('events.log','r') or die ('File opening failed');
@@ -42,9 +44,10 @@ while (!feof($handle)) {
         echo "Time: ".$time."<br>";
         echo "Item name: ".$itemName."<br>";
         echo "Action: ".$state1." to ".$state2."<br><br>";
-
-        $bulk = new MongoDB\Driver\BulkWrite;
-        $bulk->insert(['name' => $itemName, 'date' => $date, 'time' => $time, 'state1' => $state1, 'state2' => $state2]);
-        $manager->executeBulkWrite('KlapLab.logs', $bulk);
+        if($writeToDB){
+            $bulk = new MongoDB\Driver\BulkWrite;
+            $bulk->insert(['name' => $itemName, 'date' => $date, 'time' => $time, 'state1' => $state1, 'state2' => $state2]);
+            $manager->executeBulkWrite('KlapLab.logs', $bulk);
+        }
     }
 }

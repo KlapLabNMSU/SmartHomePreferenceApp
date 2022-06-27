@@ -149,24 +149,24 @@ Preconditions:
       $_psd - password
 
 Postconditions: 
-      returns array containing all uninstalled bindings' UIDs 
+      returns array containing all installed bindings' UIDs 
 
 Last Edited:
       02/23/2022 */
-      function getAllItems($_url,$_usr,$_psd){
-            $api = $_url . '/rest/items';
-            
-            $ch = curl_init();
-            curl_setopt($ch,CURLOPT_URL,$api);
-            curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+function getAllItems($_url,$_usr,$_psd){
+      $api = $_url . '/rest/items';
+      
+      $ch = curl_init();
+      curl_setopt($ch,CURLOPT_URL,$api);
+      curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $response = curl_exec($ch);
 
-                        curl_close ($ch);
+                  curl_close ($ch);
 
-            return json_decode($response,true);
-      }//end bindingList
+      return json_decode($response,true);
+}//end bindingList
 
 
 /*

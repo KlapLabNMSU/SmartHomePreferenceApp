@@ -32,7 +32,7 @@ Links From: ---
 	  <h1>Smart Home Schedules</h3>
 	  <p>Please click Generate to see new schedules.</p>
 	</div>
-	<button class="btn btn-primary" type="button" onclick="#">Generate</button>
+	<button class="btn btn-primary" type="button" onclick="location.href='SHSP.php'">Generate</button>
 	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
 	
 </div>

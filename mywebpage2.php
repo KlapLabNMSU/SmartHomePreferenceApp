@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-Author: Miguel Fernandez
+Author: Moinul Morshed Porag Chowdhury, Miguel Fernandez
 Contributors: ---
 Date Last Modified: 03/31/2022
 Description: TODO
@@ -48,31 +48,31 @@ Links From: activedevices.php
 			</div>
 			
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="mon">
 				<label class="form-check-label" for="inlineCheckbox1">Mon</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tue">
 			  <label class="form-check-label" for="inlineCheckbox2">Tue</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="wed">
 			  <label class="form-check-label" for="inlineCheckbox3">Wed</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="thu">
 				<label class="form-check-label" for="inlineCheckbox1">Thr</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="fri">
 			  <label class="form-check-label" for="inlineCheckbox2">Fri</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="sat">
 			  <label class="form-check-label" for="inlineCheckbox3">Sat</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="sun">
 			  <label class="form-check-label" for="inlineCheckbox3">Sun</label>
 			</div>
 		</div>
