@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+Author: Moinul Morshed Porag Chowdhury, Miguel Fernandez
+Contributors: ---
+Date Last Modified: 03/31/2022
+Description: TODO
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: process.php home.php
+Links From: activedevices.php
+-->
 <html>
 <head>
 	<!-- Required meta tags -->
@@ -14,40 +24,8 @@
 
 <?php include 'createfiles.php'; ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="schedule.php">Schedules</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="scan.php">Scan</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Device Preferences
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			<?php foreach($arr_data as $items){ ?>
-				<?php $link = '<a class="dropdown-item" href="mywebpage2.php?val='; ?>
-				<?php $link .= $items.'">'.$items.'</a>'; ?> 
-				<?php print $link; ?>
-			<?php } ?>
-        </div>
-      </li>
-	        <li class="nav-item">
-        <a class="nav-link" href="settings.php">Settings</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<?php include('nav-bar.php'); ?>
+<?php echo "<script> document.getElementById('mywebpage2').className += ' active';</script>"; ?>
 
 <?php //This section is used to create the sections for users to put in preferences.?>
 <?php $count = 2;?>
@@ -70,31 +48,31 @@
 			</div>
 			
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="mon">
 				<label class="form-check-label" for="inlineCheckbox1">Mon</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tue">
 			  <label class="form-check-label" for="inlineCheckbox2">Tue</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="wed">
 			  <label class="form-check-label" for="inlineCheckbox3">Wed</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="thu">
 				<label class="form-check-label" for="inlineCheckbox1">Thr</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="fri">
 			  <label class="form-check-label" for="inlineCheckbox2">Fri</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="sat">
 			  <label class="form-check-label" for="inlineCheckbox3">Sat</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="sun">
 			  <label class="form-check-label" for="inlineCheckbox3">Sun</label>
 			</div>
 		</div>

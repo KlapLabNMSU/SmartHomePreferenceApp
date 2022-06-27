@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<!--
+Author: Miguel Fernandez
+Contributors: Theoderic Platt, Moinul Morshed Porag Chowdhury
+Date Last Modified: 03/31/2022
+Description: Smart Home Device Service checks the current time and references the currently set schedule,
+             sending commands to Openhab at the correct times.
+Includes: ---
+Included In: ---
+Links To: ---
+Links From: ---
+-->
 <html>
 <body>
 

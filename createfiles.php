@@ -1,11 +1,22 @@
+<!--
+Author: Miguel Fernandez
+Contributors: ---
+Date Last Modified: 11/24/2021
+Description: TODO
+Includes: ---
+Included In: home.php activedevices.php bindings.php installbinding.php items.php mywebpage2.php registration.php scan.php schedule.php settings.php
+Links To: ---
+Links From: ---
+-->
 <html>
 <body>
 <?php
-	chdir('D:/Postdoc/xampp/htdocs/SmartHomePreferenceApp/');
+	chdir('/xampp/htdocs/SmartHomePreferenceApp/');
 	$directory = './SHDS/items/';
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
-	//include 'openhabTest.php';
-	$arr_data = ["SP1_Power"];/*
+	$output = "";
+	exec("java testfile", $output);
+	$arr_data = $output;/*
 	//This foreach loop looks through all the devices we have and sees if the names match. If they do not belong, they are deleted.
 	foreach($scanned_directory as $values) {
 		$smol = substr($values, 0, -5);

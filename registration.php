@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+Author: Theoderic Platt
+Contributors: ---
+Date Last Modified: 03/30/2022
+Description: Prompts user for Name, Label, and Type of item. Submit links to createitems.php
+Includes: createfiles.php Item_handler.php nav-bar.php
+Included In: --- 
+Links To: createitems.php
+Links From: items.php
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>
@@ -13,7 +23,7 @@
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
-<?php sleep(2);//give the site a chance to scan for devices?>
+
 
 <!-- make the corresponding navigation bar to active -->
 <?php include('nav-bar.php'); ?>
@@ -21,21 +31,43 @@
 
 <?php 
 $data = $_POST['itemData'];
-$itemData = json_decode($data,true);
-var_dump($data) //TODO get the data to all correctly show
+$dataS = stripslashes($data);
+$dataEncoded = json_decode($dataS,true);
+//echo "<div class ='border border-primary'>".$dataEncoded."</div>";
 ?>
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Register</h3>
-	  <p>Please select an item from the list to add.</p>
+        
+	  <h1>Please fill the following fields for '<?php echo array_values(array_values($dataEncoded)[2])[11];?>'.</h1>
+      <p>Name: the name you wish to call your item.</p>
+      <p>Label: the label you want you item to have.</p>
+      <p>Type: select what type of item you have.</p>
 	</div>
+    
+    <form name="form" action="createitems.php" method="post"><h4>Name</h4>
+        <input type="hidden" name="itemData" value='<?php echo $data?>'>
+        <input type="text" name="name" id="subject" value=""></br><h4>Label</h4>
+        <input type="text" name="label" id="subject" value=""></br><h4>Type</h4>
+        <select name="type">
+        <option value="Color">Color</option>
+        <option value="Contact">Contact</option>
+        <option value="DateTime">DateTime</option>
+        <option value="Dimmer">Dimmer</option>
+        <option value="Group">Group</option>
+        <option value="Image">Image</option>
+        <option value="Location">Location</option>
+        <option value="Number">Number</option>
+        <option value="Player">Player</option>
+        <option value="Rollershutter">Rollershutter</option>
+        <option value="String">String</option>
+        <option value="Switch">Switch</option>
+    </select></br></br>
+    <button class="btn btn-primary" type="submit">Submit</button> 
+    <button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Cancel</button>
+    </form>
 
-    <?php 
-        
-        
-    ?>
 
-	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
+	
 
     
 </div>

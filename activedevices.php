@@ -2,12 +2,12 @@
 <!--
 Author: Moinul Morshed Porag Chowdhury
 Contributors: ---
-Date Last Modified: 03/30/2022
-Description: Installs selected binding to Openhab. Uninstalls passed value is not "install"
+Date Last Modified: 04/19/2022
+Description: Finds all devices currently connected to Openhab and Lists them as links to mywebpage2.php
 Includes: createfiles.php Item_handler.php nav-bar.php
-Included In: --- 
-Links To: scan.php
-Links From: scan.php
+Included In: ---
+Links To: mywebpage2.php home.php
+Links From: ---
 -->
 <html lang="en">
 <head>
@@ -23,40 +23,31 @@ Links From: scan.php
 
 <?php include 'createfiles.php'; ?>
 <?php include 'Item_handler.php';?>
-<?php sleep(2);//give the site a chance to scan for devices?>
 
+<!-- make the corresponding navigation bar to active -->
 <?php include('nav-bar.php'); ?>
-<?php echo "<script> document.getElementById('Register Devices').className += ' active';</script>"; ?>
+<?php echo "<script> document.getElementById('activedevices').className += ' active';</script>"; ?>
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Binding operation status</h3>
-	  <p>Check below the status of your binding operation.</p>
+	  <h1>Active devices</h3>
+	  <p>Below devices are active in the smart home.</p>
 	</div>
+  <?php 
+    $items = array_values(getAllItems('localhost:8080','smarthome','smarthome'));
+	echo '<div class ="border border-primary">';		
+	foreach($items as $item){
+	echo '<form method="post" action="mywebpage2.php?val='.array_values($item)[4].'"><div class="d-block p-2">
+			<button class="btn btn-primary" type="submit">'.array_values($item)[4].'</button> 
+		 </div></form>';
+	}
+	echo '</div>';
+  ?>
 
-    <?php 
-        $_bindingId = $_POST['bindingId'];
-		$boo_Install = $_POST['install'];
-		//echo $boo_Install;
-		$_code = "400";
-		if($boo_Install == "install"){
-			$_code = bindingInstall('localhost:8080','smarthome','smarthome',$_bindingId);
-		}
-		else {
-			$_code = bindingUninstall('localhost:8080','smarthome','smarthome',$_bindingId);	
-		}			
-			
-		if ($_code == "200"){
-			echo "<div class='p-2'><h3>".$_bindingId." binding ".$boo_Install."ation successful!</h3></div>";	
-		}
-		else { 
-			echo "<div class='p-2'><h3>".$_bindingId." binding ".$boo_Install."ation unsuccessful!</h3></div>";	
-		}
-    ?>
+  </br>
+  <!--button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button-->
+	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
 
-	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Done</button>
-
-    
 </div>
 </body>
 </html>
