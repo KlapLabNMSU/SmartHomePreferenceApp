@@ -32,9 +32,9 @@ Links From: ---
 /////////////////////////
 // Important Variables //
 /////////////////////////
-$url   = 'http://localhost:8080'; //openhab url
-$usr = 'tplatt'; //username --TODO look into security, info should not be hardcoded.
-$psd  = '0Noudont'; //password --TODO look into security, info should not be hardcoded.
+$url = 'http://localhost:8080'; //openhab url
+$usr = 'smarthome'; //username --TODO look into security, info should not be hardcoded.
+$psd = 'smarthome'; //password --TODO look into security, info should not be hardcoded.
 
 ///////////////////////////
 // API calling functions //
