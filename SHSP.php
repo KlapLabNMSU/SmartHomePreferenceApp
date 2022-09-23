@@ -3,12 +3,15 @@ Author: Miguel Fernandez
 Contributors: Theoderic Platt
 Date Last Modified: 03/31/2022
 Description: TODO
-Includes: home.php
+Includes: home.php Item_Handler.php
 Included In: ---
 Links To: ---
 Links From: ---
 -->
+<?php include 'Item_handler.php';?>
+
 <?php
+
     chdir('/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/');
     $numSchedules = 1; //generate 1 schedule
     $numDevices = sizeof(getAllItems('localhost:8080',$usr,$psd)); //generate for the number of devices on the system

@@ -13,7 +13,7 @@ Description: Item_Handler.php uses cURL requests to openhab to allow
             6) creation of 'Items'
             7) linking of 'Items' to device channels
 Includes: ---
-Included In: activedevices.php bindings.php createitems.php installbinding.php items.php registration.php scan.php
+Included In: SHSP.php activedevices.php bindings.php createitems.php installbinding.php items.php registration.php scan.php
 Links To: ---
 Links From: --- 
 -->

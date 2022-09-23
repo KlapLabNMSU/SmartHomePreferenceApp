@@ -1,4 +1,2 @@
-SP1_Power
-VS1
-VS2
-VS3
+sp1
+sp2
