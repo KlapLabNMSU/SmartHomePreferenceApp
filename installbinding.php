@@ -40,10 +40,10 @@ Links From: scan.php
 		//echo $boo_Install;
 		$_code = "400";
 		if($boo_Install == "install"){
-			$_code = bindingInstall('localhost:8080','smarthome','smarthome',$_bindingId);
+			$_code = bindingInstall('localhost:8080',$usr,$psd,$_bindingId);
 		}
 		else {
-			$_code = bindingUninstall('localhost:8080','smarthome','smarthome',$_bindingId);	
+			$_code = bindingUninstall('localhost:8080',$usr,$psd,$_bindingId);	
 		}			
 			
 		if ($_code == "200"){

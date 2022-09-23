@@ -34,7 +34,7 @@ Links From: scan.php
 	  <p>Please select a binding to scan for devices on that network.</p>
 	</div>
   <?php 
-    $items = array_values(getUninstalledBindings('localhost:8080','smarthome','smarthome'));
+    $items = array_values(getUninstalledBindings('localhost:8080',$usr,$psd));
 	echo '<div class ="border border-primary">';		
 	foreach($items as $item){
 	echo '<form method="post" action="installbinding.php"><div class="d-block p-2">

@@ -33,7 +33,7 @@ Links From: installbinding.php items.php
 	  <div class="alert alert-warning" role="alert">Please select a binding to scan for devices on that network/brand. If the binding is not present, you have to install that binding to register your device.</div>
 	</div>
   <?php 
-    $bindings = bindingList('localhost:8080','smarthome','smarthome');//FIXME ask porag how to get username/password data without hardcoding it.
+    $bindings = bindingList('localhost:8080',$usr,$psd);//FIXME ask porag how to get username/password data without hardcoding it.
 	echo '<div class ="border border-primary p-2"><h3> Installed bindings </h3></div>';
 	echo '<div class ="border border-primary">';
     foreach($bindings as $item){

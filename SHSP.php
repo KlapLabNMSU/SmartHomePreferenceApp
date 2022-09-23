@@ -11,7 +11,7 @@ Links From: ---
 <?php
     chdir('/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/');
     $numSchedules = 1; //generate 1 schedule
-    $numDevices = sizeof(getAllItems('localhost:8080','smarthome','smarthome')); //generate for the number of devices on the system
+    $numDevices = sizeof(getAllItems('localhost:8080',$usr,$psd)); //generate for the number of devices on the system
     $numTimes = 1440; //generate 1440 unique time slots (there are 1440 minutes in a day)
     $command_exec = escapeshellcmd('python generate_instances.py '.$numSchedules.' '.$numDevices.' '.$numTimes.'');
     $command_exec = escapeshellcmd('python dep.py '.$numSchedules.' '.$numDevices.' '.$numTimes.'');

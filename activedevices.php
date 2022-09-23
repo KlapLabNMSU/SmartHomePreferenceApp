@@ -34,7 +34,7 @@ Links From: ---
 	  <p>Below devices are active in the smart home.</p>
 	</div>
   <?php 
-    $items = array_values(getAllItems('localhost:8080','smarthome','smarthome'));
+    $items = array_values(getAllItems('localhost:8080',$usr,$psd));
 	echo '<div class ="border border-primary">';		
 	foreach($items as $item){
 	echo '<form method="post" action="mywebpage2.php?val='.array_values($item)[4].'"><div class="d-block p-2">

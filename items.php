@@ -40,8 +40,8 @@ Links From: items.php scan.php
     <?php 
       $uid = $_POST['UID'];
       $scanner = [$uid];
-      bindingScan('localhost:8080','smarthome','smarthome',$scanner);
-      $jsondata = inboxList('localhost:8080','smarthome','smarthome');
+      bindingScan('localhost:8080',$usr,$psd,$scanner);
+      $jsondata = inboxList('localhost:8080',$usr,$psd);
       $items = array_values($jsondata);
       echo '<div class ="border border-primary p-2">';	
       

@@ -11,7 +11,7 @@ Links From: ---
 <html>
 <body>
 <?php
-	chdir('/xampp/htdocs/SmartHomePreferenceApp/');
+	//chdir('/xampp/htdocs/SmartHomePreferenceApp/');
 	$directory = './SHDS/items/';
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
 	$output = "";

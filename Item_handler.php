@@ -33,8 +33,8 @@ Links From: ---
 // Important Variables //
 /////////////////////////
 $url   = 'http://localhost:8080'; //openhab url
-$usr = ''; //username --TODO look into security, info should not be hardcoded.
-$psd  = ''; //password --TODO look into security, info should not be hardcoded.
+$usr = 'tplatt'; //username --TODO look into security, info should not be hardcoded.
+$psd  = '0Noudont'; //password --TODO look into security, info should not be hardcoded.
 
 ///////////////////////////
 // API calling functions //
@@ -452,7 +452,7 @@ function itemLink($_url,$_usr,$_psd,$_name,$_UID,$_type,$debug=false){
 
 //THE BELOW CODE COMMENTED OUT SHOWS EXACT OUTPUT OF THE inboxList() FUNCTION.
 /*
-$L0 = inboxList($url,'smarthome','smarthome');
+$L0 = inboxList($url,$usr,$psd);
 
 $ind1 = 0;
 echo 'array indexes:</br>';
