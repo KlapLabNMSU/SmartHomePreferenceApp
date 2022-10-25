@@ -47,7 +47,7 @@ Links From: scan.php
   ?>
 
   </br>
-  <button class="btn btn-primary" type="button" onclick="location.href='home.php'">Install new bindings</button>
+  <button class="btn btn-primary" type="button" onclick="location.href='bindings.php'">Install new bindings</button>
 	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
 
 </div>
