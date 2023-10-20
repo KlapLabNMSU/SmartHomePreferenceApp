@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Smart Home Preference App</title>
+	<title>Smart Home Device Scheduler</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -14,17 +14,20 @@
 <?php include 'createfiles.php'; ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Smart Home Preference App</a>
+  <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="schedule.php">Schedules</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Scan OpenHAB</a>
+        <a class="nav-link" href="#">Scan</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,8 +41,8 @@
 			<?php } ?>
         </div>
       </li>
-	        <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
+	        <li class="nav-item active">
+        <a class="nav-link" href="settings.php">Settings</a>
       </li>
     </ul>
   </div>
@@ -47,8 +50,8 @@
 
 <div class="container">
 	<div class="jumbotron">
-	  <h1>Welcome to Smart Home Preference App!</h3>
-	  <p>Please click Scan OpenHAB for new devices if Device Preferences list is empty.</p>
+	  <h1>Smart Home Device Scheduler Settings</h3>
+	  <p>Please set the correct url to Scan OpenHAB for new devices and set path to store the json files.</p>
 	</div>
 	<form>
 	  <div class="form-group">
