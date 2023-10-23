@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "Alpha",
+            "ON": [
+                ""
+            ],
+            "OFF": [
+                ""
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

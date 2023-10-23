@@ -12,8 +12,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <?php include 'createfiles.php'; ?>
+<<<<<<< Updated upstream
 <?php include 'Item_handler.php';?>
 <?php sleep(2);//give the site a chance to scan for devices?>
+=======
+
+>>>>>>> Stashed changes
 
 <!-- make the corresponding navigation bar to active -->
 <?php include('nav-bar.php'); ?>
@@ -21,6 +25,7 @@
 
 <?php 
 $data = $_POST['itemData'];
+<<<<<<< Updated upstream
 $itemData = json_decode($data,true);
 var_dump($data) //TODO get the data to all correctly show
 ?>
@@ -38,6 +43,46 @@ var_dump($data) //TODO get the data to all correctly show
 	<button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Back</button>
 
     
+=======
+$dataS = stripslashes($data);
+$dataEncoded = json_decode($dataS,true);
+//echo "<div class ='border border-primary'>".implode(" ", $dataEncoded)."</div>";
+?>
+<div class="container">
+	<div class="jumbotron">
+        
+	  <h1>Please fill the following fields for '<?php echo array_values(array_values($dataEncoded)[2])[11];?>'.</h1>
+      <p>Name: the name you wish to call your item.</p>
+      <p>Label: the label you want you item to have.</p>
+      <p>Type: select what type of item you have.</p>
+
+	</div>
+    
+    <form name="form" action="createitems.php" method="post" ><h4>Name</h4>
+        <input type="hidden" name="itemData" value='<?php echo $data?>'>
+        <input type="text" name="name" id="name" value=""></br><h4>Label</h4>
+        <input type="text" name="label" id="label" value=""></br><h4>Location</h4>
+        <input type="text" name="location" id="location" value=""></br><h4>Type</h4>
+        <select name="type">
+        <option value="Color">Color</option>
+        <option value="Contact">Contact</option>
+        <option value="DateTime">DateTime</option>
+        <option value="Dimmer">Dimmer</option>
+        <option value="Group">Group</option>
+        <option value="Image">Image</option>
+        <option value="Location">Location</option>
+        <option value="Number">Number</option>
+        <option value="Player">Player</option>
+        <option value="Rollershutter">Rollershutter</option>
+        <option value="String">String</option>
+        <option value="Switch">Switch</option>
+    </select></br></br>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="button" onclick="location.href='scan.php'">Cancel</button>
+    </form>
+
+>>>>>>> Stashed changes
 </div>
 </body>
 </html>

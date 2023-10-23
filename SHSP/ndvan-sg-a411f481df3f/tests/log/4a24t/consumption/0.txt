@@ -1,5 +1,12 @@
 dev: 4
+<<<<<<< Updated upstream
 100
 900
 500
 1000
+=======
+500
+600
+500
+100
+>>>>>>> Stashed changes

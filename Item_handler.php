@@ -15,6 +15,7 @@
             5) approval/denial of scanned devices into openhab registry
             6) creation of 'Items'
             7) linking of 'Items' to device channels
+<<<<<<< Updated upstream
             */
 
 
@@ -29,6 +30,21 @@
             $url   = 'http://localhost:8080'; //openhab url
             $usr = ''; //username --TODO look into security, info should not be hardcoded.
             $psd  = ''; //password --TODO look into security, info should not be hardcoded.
+=======
+Includes: ---
+Included In: SHSP.php activedevices.php bindings.php createitems.php installbinding.php items.php registration.php scan.php
+Links To: ---
+Links From: --- 
+-->
+
+<?php
+/////////////////////////
+// Important Variables //
+/////////////////////////
+$url   = 'http://localhost:8080'; //openhab url
+$usr = ''; //username --TODO look into security, info should not be hardcoded.
+$psd  = ''; //password --TODO look into security, info should not be hardcoded.
+>>>>>>> Stashed changes
 
             ///////////////////////////
             // API calling functions //
@@ -368,6 +384,7 @@
                   return $response;
             }//end bindingScan
 
+<<<<<<< Updated upstream
             //THE BELOW CODE COMMENTED OUT SHOWS EXACT OUTPUT OF THE inboxList() FUNCTION.
             /*
             $L0 = inboxList($url,'smarthome','smarthome');
@@ -391,6 +408,217 @@
                   else 
                   echo '</br>AAAHHHHHHH';
                   $ind1++;
+=======
+      $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+      //echo '</br>curl http code:'.$httpCode.'</br>';
+
+      curl_close ($ch);
+      return $httpCode;
+}//end bindingInstall
+
+
+/*                   
+Preconditions:  
+      $_url - openhab url
+      $_usr - username
+      $_psd - password
+      $_bindingId - binding id of the brand to uninstall
+
+Postconditions: 
+      The device with Binging = $_bindingId is used
+      returns openhab response from adding the binding.
+
+Last Edited:
+      03/14/2022 */
+function bindingUninstall($_url,$_usr,$_psd,$_bindingId){
+      $api = $_url . '/rest/addons/' . $_bindingId . '/uninstall';
+      //echo $api . '</br>';
+      
+      $ch = curl_init();
+      curl_setopt($ch,CURLOPT_URL,$api);
+      curl_setopt($ch,CURLOPT_POST,1);
+      curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+      $headers = array(
+            "Accept: application/json",
+            "Content-Type: text/plain"
+      );
+      curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $response = curl_exec($ch);
+
+      $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+      //echo '</br>curl http code:'.$httpCode.'</br>';
+
+      curl_close ($ch);
+      return $httpCode;
+}//end bindingUninstall
+
+
+/*
+Preconditions:  
+      $_url   - openhab url
+      $_usr   - username
+      $_psd   - password
+      $_name  - item name
+      $_label - item lable
+      $_type  - item type
+
+Postconditions: 
+      itemCreate creates an item with all the set parameter values
+      returns openhab response from adding the device.
+
+Last Edited:
+      03/16/2022 */
+function itemCreate($_url,$_usr,$_psd,$_name,$_label,$_type,$debug = false){
+      $api = $_url . '/rest/items/' . $_name;
+      /*
+      category: ""
+      created: false
+      groupNames: []
+      label: "itemLabel"
+      name: "itemName"
+      tags: []
+      type: "Switch"
+      */
+      $data = array(
+            'category' => '', 
+            'created'=> false,
+            'groupNames' => [],
+            'label'=> $_label,
+            'name' => $_name,
+            'tags' => [],  
+            'type' => $_type
+      );
+      $payload = json_encode($data);
+      
+      #echo "Payload is: </br>";
+      #echo $payload;
+      #echo "</br>";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$api);
+      //curl_setopt($ch, CURLOPT_PUT, 1);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $payload );
+      curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+      $headers = array(
+            "Content-Type: application/json"
+      );
+      curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $response = curl_exec($ch);
+      $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+      if($debug)echo '</br>itemCreate curl http code:'.$httpCode.'</br>';
+
+      curl_close ($ch);
+      return $response;
+}//end bindingScan
+
+/*
+Preconditions:  
+      $_url   - openhab url
+      $_usr   - username
+      $_psd   - password
+      $_name  - item name
+
+
+Postconditions: 
+      returns openhab response from removing the device.
+
+Last Edited:
+      08/21/2023 */
+function itemRemove($_url, $_usr, $_psd, $_name, $debug = false){
+      $api = $_url . '/rest/items/' . $_name;
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$api);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+      curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+      $headers = array(
+            "Content-Type: application/json"
+      );
+      curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $response = curl_exec($ch);
+      $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+      if($debug)echo '</br>itemRemove curl http code:'.$httpCode.'</br>';
+
+      curl_close ($ch);
+      return $response;
+}
+
+function removeThing($url, $username, $password, $thingName, $debug = false) {
+      $api = $url . '/rest/things/' . $thingName;
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$api);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+      curl_setopt($ch, CURLOPT_USERPWD, $username . ':' . $password);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+      $response = curl_exec($ch);
+      $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      if($debug)echo '</br>itemRemove curl http code:'.$httpCode.'</br>';
+      curl_close ($ch);
+
+      return $response;
+  }
+
+/*
+Preconditions:  
+      $_url   - openhab url
+      $_usr   - username
+      $_psd   - password
+      $_name  - item name
+      $_UID   - item UID
+      $_type  - item type
+
+Postconditions: 
+      itemLink links an item to a channel
+      returns openhab response from adding the device.
+
+Last Edited:
+      03/29/2022 */
+function itemLink($_url,$_usr,$_psd,$_name,$_UID,$_type,$debug=false){
+      $api = $_url . '/rest/links/' . $_name . '/' . $_UID . '%3A' . $_type;
+      if($debug) echo 'api is: '.$api;
+      
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$api);
+      //curl_setopt($ch, CURLOPT_PUT, 1);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+      curl_setopt($ch, CURLOPT_USERPWD, $_usr . ":" . $_psd);
+
+      $headers = array(
+            "Content-Type: application/json"
+      );
+      curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $response = curl_exec($ch);
+      $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+      if($debug)echo '</br>itemLink curl http code:'.$httpCode.'</br>';
+
+      curl_close ($ch);
+      return $response;
+}//end bindingScan
+
+//THE BELOW CODE COMMENTED OUT SHOWS EXACT OUTPUT OF THE inboxList() FUNCTION.
+/*
+$L0 = inboxList($url,'smarthome','smarthome');
+
+$ind1 = 0;
+echo 'array indexes:</br>';
+foreach($L0 as $L1){
+      $ind2 = 0;
+      if(is_array($L1))
+      foreach($L1 as $L2){
+            $ind3 = 0;
+            if(is_array($L2))
+            foreach($L2 as $L3){
+                  echo '</br>t['.$ind1.']['.$ind2.']['.$ind3.']:'.$L3;
+                  $ind3++;
+>>>>>>> Stashed changes
             }
             echo'</br></br></br>vardump:</br>';
             var_dump($L0);

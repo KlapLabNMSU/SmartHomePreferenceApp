@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "marco69",
+            "ON": [
+                "12:00"
+            ],
+            "OFF": [
+                "2:52"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true
+                ]
+            ]
+        }
+    ]
+}

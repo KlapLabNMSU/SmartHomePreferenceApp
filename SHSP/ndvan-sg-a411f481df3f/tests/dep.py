@@ -30,15 +30,13 @@ def exe(appliances,times,path,instance,result,no_nodes):
   
   dependency = Dependency(NDEVICE,NTIMESLOT,NDEPENDENCY)
   
-  for i in range(pref.ndevice):
-    print(pref.matrix[i])
-  print("")
+  print(str(dependency))
 
-  for i in range(pref.ndevice):
-    print(pref.sorted_matrix[i])
-  print("")
+  #for i in range(pref.ndevice):
+    #print(pref.sorted_matrix[i])
+  #print("")
 
-  print(consumption.matrix)
+  #print(consumption.matrix)
 
   config = {
     "pref_matrix"           : pref,
@@ -50,7 +48,7 @@ def exe(appliances,times,path,instance,result,no_nodes):
     "dependency"            : dependency
   }
   
-  print(config)
+  # print(config)
   g = Graph(**config)
 
   # start traversing from top of the init tree
@@ -58,10 +56,11 @@ def exe(appliances,times,path,instance,result,no_nodes):
   no_nodes[instance] = g.size()
   
 if __name__ == '__main__':
-  ntest = int(sys.argv[1])
-  appliances = int(sys.argv[2])
-  times = int(sys.argv[3])
-  path = "log/{}a{}t/".format(appliances, times)
+  ntest = int(sys.argv[1]) #num of tests
+  appliances = int(sys.argv[2]) #num devices
+  times = int(sys.argv[3])  #timeslots per day
+  #path = "log/{}a{}t/".format(appliances, times)"
+  path = "/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/log/{}a{}t/".format(appliances, times)
 
   run_time = []
   finished = 0

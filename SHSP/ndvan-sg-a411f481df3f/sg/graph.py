@@ -25,6 +25,7 @@ class Graph:
     
     # price in cents/kwh
     self.eprice = [40.36, 37.65, 36.21, 37.19, 38.05, 39.89, 51.44, 56.36, 57.75, 67.54, 68.89, 66.00, 66.00, 66.00, 63.47, 63.46, 59.91, 94.19, 92.79, 70.17, 60.55, 52.84, 46.50, 44.43]
+    
     for key in valid_keys:
       setattr(self, key, kwargs.get(key))
   
@@ -239,8 +240,8 @@ class Graph:
     
   def print_schedule(self,nodes):
     #predeclare the variables
-    deviceNames = open('Devices/DeviceNames.txt','r')
-    deviceTypes = open('Devices/DeviceTypes.txt','r')
+    deviceNames = open('/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/Devices/DeviceNames.txt','r')
+    deviceTypes = open('/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/Devices/DeviceTypes.txt','r')
     deviceName = ""
     deviceType = ""
     deviceOnHour = 0
@@ -248,11 +249,12 @@ class Graph:
     deviceOffHour = 0
     deviceOffMin = 0
     del nodes[-1]
-    print("")
+    print("\nDevice Controls:\n")
     for i in nodes:
       print("Device #%d: %d" % (self.nodes[i].device, self.nodes[i].timeslot))
       #get directory path for where files will
-      direct = "/xampp/htdocs/SmartHome/SHDS/items"
+      # E:\xampp\htdocs\SmartHomePreferenceApp\SHDS\items
+      direct = "/xampp/htdocs/SmartHomePreferenceApp/SHDS/items"
       #set device name dir
       fileName = direct + "/DeviceControl"+str(self.nodes[i].device)+".json"
       f = open(fileName,"w+")
@@ -439,7 +441,7 @@ class Graph:
       return self.found
     else:
       self.DFSUtil(v)
-      self.print_schedule(self.backtrace(v))
+      #self.print_schedule(self.backtrace(v))  # prints empty schedule??
       return self.found
       
   # graph size 

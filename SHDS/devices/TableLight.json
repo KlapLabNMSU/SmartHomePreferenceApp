@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "TableLight",
+            "ON": [
+                "16:28"
+            ],
+            "OFF": [
+                "16:29"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

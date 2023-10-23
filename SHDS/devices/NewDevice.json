@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "NewDevice",
+            "ON": [
+                "12:40"
+            ],
+            "OFF": [
+                "12:41"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true
+                ]
+            ]
+        }
+    ]
+}

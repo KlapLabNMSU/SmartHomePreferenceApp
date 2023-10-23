@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+Author: Moinul Morshed Porag Chowdhury
+Contributors: ---
+Date Last Modified: 03/30/2022
+Description: Allows user to set the correct url to Scan OpenHAB for new devices and set path to store the json files.
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: home.php
+Links From: ---
+-->
 <html lang="en">
 <head>
 	<title>Smart Home Device Scheduler</title>
@@ -13,6 +23,7 @@
 
 <?php include 'createfiles.php'; ?>
 
+<<<<<<< Updated upstream
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +58,12 @@
     </ul>
   </div>
 </nav>
+=======
+<!-- make the corresponding navigation bar to active -->
+<?php include('nav-bar.php'); ?>
+<?php echo "<script> document.getElementById('settings').className += ' active';</script>"; ?>
+
+>>>>>>> Stashed changes
 
 <div class="container">
 	<div class="jumbotron">

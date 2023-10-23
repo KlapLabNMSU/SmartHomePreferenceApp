@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-	chdir('D:/Postdoc/xampp/htdocs/SmartHomePreferenceApp/');
+	chdir('E:/xampp/htdocs/SmartHomePreferenceApp/');
 	$directory = './SHDS/items/';
 	$scanned_directory = array_diff(scandir($directory),array('..','.'));
 	//include 'openhabTest.php';

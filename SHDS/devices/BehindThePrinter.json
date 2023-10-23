@@ -1,0 +1,46 @@
+{
+    "items": [
+        {
+            "name": "BehindThePrinter",
+            "ON": [
+                "12:40",
+                "13:17",
+                "11:11"
+            ],
+            "OFF": [
+                "12:41",
+                "16:01",
+                "11:12"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

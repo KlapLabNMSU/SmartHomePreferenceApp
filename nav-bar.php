@@ -1,3 +1,14 @@
+<!--
+Author: Moinul Morshed Porag Chowdhury
+Contributors: Theoderic Platt, Miguel Fernandez
+Date Last Modified: 03/31/2022
+Description: navigation bar linking all files together.
+Includes: ---
+Included In: home.php activedevices.php bindings.php installbinding.php items.php mywebpage2.php registration.php scan.php schedule.php settings.php
+Links To: home.php schedule.php scan.php activedevices.php mywebpage2.php settings.php
+Links From: ---
+-->
+<?php include 'Item_handler.php';?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +37,10 @@
 			<?php } ?>
         </div>
       </li>
+      <li class="nav-item" id="chat">
+        <a class="nav-link" href="chat.php">Chat with ChatGPT Test</a>
+      </li>
+
 	  <li class="nav-item" id="settings">
         <a class="nav-link" href="settings.php">Settings</a>
       </li>

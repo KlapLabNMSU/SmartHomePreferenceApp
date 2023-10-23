@@ -1,4 +1,7 @@
 Switch
 Switch
 Switch
+<<<<<<< Updated upstream
 Switch
+=======
+>>>>>>> Stashed changes

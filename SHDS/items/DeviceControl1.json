@@ -1,0 +1,10 @@
+{
+	"items": [
+		{
+			"name": "Albuquerque",
+			"type": "Switch",
+			"ON": ["03:00"],
+			"OFF": ["04:00"]
+		}
+	]
+}

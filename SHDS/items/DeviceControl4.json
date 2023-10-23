@@ -1,0 +1,10 @@
+{
+	"items": [
+		{
+			"name": "TablePlug",
+			"type": "Switch",
+			"ON": ["16:44"],
+			"OFF": ["17:44"]
+		}
+	]
+}

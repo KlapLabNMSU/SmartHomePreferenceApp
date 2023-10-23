@@ -1,0 +1,1 @@
+{"dev_name":"neworleans","device_object":{"_id":{"$oid":"6514e5444b790000ba001c28"},"name":"neworleans","label":"liousiana","location":"they like to throw babies at you","type":"Switch"},"ON":[],"OFF":[],"days":[]}

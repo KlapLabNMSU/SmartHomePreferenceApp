@@ -12,7 +12,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <?php include 'createfiles.php'; ?>
+<<<<<<< Updated upstream
 <?php include 'Item_handler.php';?>
+=======
+<!-- make the corresponding navigation bar to active -->
+>>>>>>> Stashed changes
 <?php include('nav-bar.php'); ?>
 <!-- make the corresponding navigation bar to active -->
 <?php echo "<script> document.getElementById('scan').className += ' active';</script>"; ?>

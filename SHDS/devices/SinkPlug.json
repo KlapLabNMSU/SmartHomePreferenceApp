@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "SinkPlug",
+            "ON": [
+                "16:35"
+            ],
+            "OFF": [
+                "16:36"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

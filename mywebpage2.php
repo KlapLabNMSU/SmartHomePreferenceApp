@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+Author: Moinul Morshed Porag Chowdhury, Miguel Fernandez
+Contributors: Jacob Yoder, Diego Terrazas 
+Date Last Modified: 03/31/2022
+Description: TODO
+Includes: createfiles.php nav-bar.php
+Included In: ---
+Links To: process.php home.php
+Links From: activedevices.php
+-->
 <html>
 <head>
 	<!-- Required meta tags -->
@@ -11,54 +21,30 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script> var counter = 2; </script>
 
-<?php include 'createfiles.php'; ?>
+<?php include ('createfiles.php'); ?>
+<?php include('nav-bar.php'); ?>
+<?php echo "<script> document.getElementById('mywebpage2').className += ' active';</script>"; ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.php">Smart Home Device Scheduler</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="schedule.php">Schedules</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="scan.php">Scan</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Device Preferences
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			<?php foreach($arr_data as $items){ ?>
-				<?php $link = '<a class="dropdown-item" href="mywebpage2.php?val='; ?>
-				<?php $link .= $items.'">'.$items.'</a>'; ?> 
-				<?php print $link; ?>
-			<?php } ?>
-        </div>
-      </li>
-	        <li class="nav-item">
-        <a class="nav-link" href="settings.php">Settings</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<?php //This section is used to create the sections for users to put in preferences. badass comment?>
 
-<?php //This section is used to create the sections for users to put in preferences.?>
 <?php $count = 2;?>
 <div class="container">
 	<?php $val = $_GET["val"]; ?>
 	<div class="jumbotron">
-		<h2><?php print $val ?> Device Preferences</h1>
+		<h2>Device Preferences for "<?php print $val ?>"</h1>
 	</div>
 	<?//php include 'parsing.php'; ?>
 
-	<form action="process.php" method="POST">
+	<form action="process.php" method="POST" id="bigForm">
+
+	<input class="btn btn-primary" type="submit" name="Submit" value="Save">
+	<button class="btn btn-primary" type="button" onclick="addPref()">Add Preference</button>
+	<button class="btn btn-primary" type="button" onclick="location.href='preferences.php'">Back</button>
+	<br><br>
+		
+
 		<div class="input-group mb-3" style="border: groove; padding: 10px;">
 			<div class="form-group w-50 mx-auto"> 
 				<label for="exampleFormControlInput1"> Time On 1:</label>
@@ -70,59 +56,112 @@
 			</div>
 			
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="mon1">
 				<label class="form-check-label" for="inlineCheckbox1">Mon</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="tue1">
 			  <label class="form-check-label" for="inlineCheckbox2">Tue</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="wed1">
 			  <label class="form-check-label" for="inlineCheckbox3">Wed</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-				<label class="form-check-label" for="inlineCheckbox1">Thr</label>
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="thu1">
+				<label class="form-check-label" for="inlineCheckbox4">Thr</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-			  <label class="form-check-label" for="inlineCheckbox2">Fri</label>
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="fri1">
+			  <label class="form-check-label" for="inlineCheckbox5">Fri</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
-			  <label class="form-check-label" for="inlineCheckbox3">Sat</label>
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="sat1">
+			  <label class="form-check-label" for="inlineCheckbox6">Sat</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
-			  <label class="form-check-label" for="inlineCheckbox3">Sun</label>
+			  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="sun1">
+			  <label class="form-check-label" for="inlineCheckbox7">Sun</label>
 			</div>
+
+			<select name="state">
+				<?php
+					require __DIR__ . '/vendor/autoload.php';
+
+					$client = new MongoDB\Client("mongodb://localhost:27017");
+    				$collection = $client->KlapLab->preferences;
+
+					$query = ['dev_name' => $val];
+        			$states = (array) $collection->findOne($query);
+				
+					$keys = array_keys($states);
+
+					foreach($keys as $key){
+						if($key != "dev_name" && $key != "_id" && $key != "device_object" && $key != "days"){
+
+							echo "<option value=\"".$key."\" >".$key."</option>";
+
+						}
+
+					}
+				
+				?>
+			</select>
+
 		</div>
 		
-		<div class="input-group mb-3" style="border: groove; padding: 10px;">
-			<div class="form-group w-50 mx-auto"> 
-				<label for="exampleFormControlInput2"> Time On 2:</label>
-				<input type="text" class="form-control" name="timeOn2" placeholder="12:00">
-			</div>
-			<div class="form-group w-50 mx-auto">
-				<label for="exampleFormControlInput4"> Time Off 2:</label>
-				<input type="text" class="form-control" name="timeOff2" placeholder="16:00">
-			</div>
-		</div>
-	<?php $valPass='<input type="hidden" name="val" value="'.$val.'">';
-	echo $valPass;?>
+	<?php echo '<input type="hidden" name="val" value="'.$val.'">'; ?>
 
-	<script>
-		function addPref(){
-		}
-	</script>
-
-	<button class="btn btn-primary" type="button" onclick="addPref()">Add new preference</button>
-	<?php echo	'<input class="btn btn-primary" type="submit" name="Submit" value="Save">'; ?>
-	<button class="btn btn-primary" type="button" onclick="location.href='home.php'">Back</button>
-	
-</form>
-
+	</form>
 </div>
+
+<script>
+	function addPref(){
+		var field = document.createElement("div");
+		
+
+		field.innerHTML = "<div class=\"input-group mb-3\" style=\"border: groove; padding: 10px;>"+
+			"<input name=\"counterForm\" type=\"hidden\" value=\"" + counter + "\">" +
+			"<div class=\"form-group w-50 mx-auto\">"+
+			"<label for=\"exampleFormControlInput2\"> Time On " + counter + ":</label>"+
+			"<input type=\"text\" class=\"form-control\" name=\"timeOn" + counter + "\" placeholder=\"12:00\">"+
+			"</div> <div class=\"form-group w-50 mx-auto\"> <label for=\"exampleFormControlInput4\"> Time Off " + counter + ":</label>"+
+				"<input type=\"text\" class=\"form-control\" name=\"timeOff" + counter + "\" placeholder=\"16:00\"> </div> <div class=\"form-check form-check-inline\">	"+
+				"<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "1\" name=\"mon" + counter + "\">"+
+				"<label class=\"form-check-label\" for=\"inlineCheckbox1\">Mon</label> </div> <div class=\"form-check form-check-inline\">"+
+				"<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "2\" name=\"tue" + counter + "\">"+
+			"<label class=\"form-check-label\" for=\"inlineCheckbox" + counter + "\">Tue</label>"+
+			"</div> <div class=\"form-check form-check-inline\"> <input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "3\" name=\"wed" + counter + "\">"+
+			"<label class=\"form-check-label\" for=\"inlineCheckbox3\">Wed</label>"+
+			"</div>"+
+			"<div class=\"form-check form-check-inline\">"+
+				"<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "4\" name=\"thu" + counter + "\">"+
+				"<label class=\"form-check-label\" for=\"inlineCheckbox4\">Thr</label>"+
+			"</div>"+
+			"<div class=\"form-check form-check-inline\">"+
+			  "<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "5\" name=\"fri" + counter + "\">"+
+			  "<label class=\"form-check-label\" for=\"inlineCheckbox5\">Fri</label>"+
+			"</div>"+
+			"<div class=\"form-check form-check-inline\">"+
+			  "<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "6\" name=\"sat" + counter + "\">"+
+			  "<label class=\"form-check-label\" for=\"inlineCheckbox6\">Sat</label>"+
+			"</div>"+
+			"<div class=\"form-check form-check-inline\">"+
+			  "<input class=\"form-check-input\" type=\"checkbox\" id=\"inlineCheckbox" + counter + "7\" name=\"sun" + counter + "\">"+
+			  "<label class=\"form-check-label\" for=\"inlineCheckbox7\">Sun</label>"+
+			"</div>"+
+
+			"</div>";
+		
+
+		document.getElementById("bigForm").appendChild(field);
+		counter++;
+	}
+
+</script>
+
 </body>
+
+
+
 </html>

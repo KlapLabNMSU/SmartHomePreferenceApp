@@ -1,0 +1,4 @@
+Test   Result    Nodes      Time
+   0     True    11520   0.79951
+Finished: 1
+Avg run time: 0.79951

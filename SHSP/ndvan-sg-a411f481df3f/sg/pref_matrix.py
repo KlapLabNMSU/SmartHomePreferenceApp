@@ -29,9 +29,9 @@ class PrefMatrix:
       timeslots = []
       for j in range(0, time):
         cell = f.readline().split()
-        d = int(cell[0])
-        t = int(cell[1])
-        m = int(cell[2])
+        d = int(cell[0]) #device number
+        t = int(cell[1])  #time slot
+        m = int(cell[2])  
         v = float(cell[3])
         attribute = [d, t, m, v]
         timeslots.append(attribute)

@@ -15,7 +15,7 @@ if __name__ == '__main__':
   ntest = int(sys.argv[1])
   appliances = int(sys.argv[2])
   times = int(sys.argv[3])
-  path = "log/{}a{}t/".format(appliances, times)
+  path = "/xampp/htdocs/SmartHomePreferenceApp/SHSP/ndvan-sg-a411f481df3f/tests/log/{}a{}t/".format(appliances, times)
 
   # generate pref matrix
   pref_path = path + "pref/"

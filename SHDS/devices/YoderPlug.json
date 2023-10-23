@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "YoderPlug",
+            "ON": [
+                "2:51"
+            ],
+            "OFF": [
+                "2:52"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

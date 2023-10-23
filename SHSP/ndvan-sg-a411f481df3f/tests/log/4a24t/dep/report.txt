@@ -1,4 +1,10 @@
 Test   Result    Nodes      Time
+<<<<<<< Updated upstream
    0     True       96   0.94518
 Finished: 1
 Avg run time: 0.94518
+=======
+   0     True      168   1.50869
+Finished: 1
+Avg run time: 1.50869
+>>>>>>> Stashed changes

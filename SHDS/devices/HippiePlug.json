@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "HippiePlug",
+            "ON": [
+                "14:44"
+            ],
+            "OFF": [
+                "4:44"
+            ],
+            "days": [
+                [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        }
+    ]
+}

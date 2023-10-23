@@ -1,0 +1,10 @@
+{
+	"items": [
+		{
+			"name": "portugal",
+			"type": "Switch",
+			"ON": ["17:18"],
+			"OFF": ["18:18"]
+		}
+	]
+}
